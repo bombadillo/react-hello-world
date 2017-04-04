@@ -6,6 +6,9 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
     filename: 'index.html',
     inject: 'body'
 });
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ExtractTextPluginConfig = new ExtractTextPlugin('styles.css');
+const combineLoaders = require('webpack-combine-loaders');
 
 module.exports = {
     entry: './client/index.js',
@@ -16,7 +19,18 @@ module.exports = {
     module: {
         loaders: [
             { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
-            { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ }            
+            { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ },
+            {
+                test: /\.css$/,
+                loader: 'style-loader'
+            }, {
+                test: /\.css$/,
+                loader: 'css-loader',
+                query: {
+                    modules: true,
+                    localIdentName: '[name]__[local]___[hash:base64:5]'
+                }
+            }
         ]
     },
     plugins: [HtmlWebpackPluginConfig],
