@@ -1,13 +1,17 @@
 import React from 'react';
 
 import styles from './app.css';
+import List from './list/List.jsx';
 require("!style-loader!css-loader!spectre.css/dist/spectre.min.css");
 
 export default class App extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { count: 5 }
+        this.state = { 
+            count: 5,
+            items: ['Apples', 'Broccoli', 'Banana', 'Fish']
+        }        
     }
 
     incrementCount = () => {
@@ -35,6 +39,11 @@ export default class App extends React.Component {
                                 <button className="btn btn-primary" type="button" onClick={this.incrementCount}>Increment</button>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div className="columns">
+                    <div className="column col-3 text-center centered">
+                        <List items={this.state.items} />
                     </div>
                 </div>
             </div>
