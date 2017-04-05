@@ -22,7 +22,7 @@ export default class App extends React.Component {
 
     render() {
         return (
-            <div className="container" className={styles.app}>
+            <div className={'container ' + styles.app}>
                 <div className="columns">
                     <div className="column col-3 text-center centered">
 
