@@ -11,7 +11,7 @@
     "path": "^0.12.7",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "spectre.css": "^0.2.11",
+    "spectre.css": "0.2.11",
     "style-loader": "^0.16.1",
     "webpack": "^2.3.3",
     "webpack-combine-loaders": "^2.0.3",
